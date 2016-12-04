@@ -21,12 +21,12 @@ func main() {
           panic(err)
       }
       log.Println(string(body))
-      var t Message
-      err = json.Unmarshal(body, &t)
+      var message Message
+      err = json.Unmarshal(body, &message)
       if err != nil {
           panic(err)
       }
-      fmt.Fprintf(w, t.From)
+      fmt.Fprintf(w, message.From)
     })
 
     log.Fatal(http.ListenAndServe(":8081", nil))
